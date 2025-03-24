@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../css-modules/games.module.css";
 
 import { FaXbox } from "react-icons/fa";
@@ -43,56 +44,65 @@ export default function Games() {
 
   return (
     <>
-    <h3 className={styles.gamesTitle}>Games</h3> 
-    <div className={styles.gameContainer}>
-      {games.map((game) => (
-        <div className={styles.game} key={game.id}>
-          <div>
-            <img src={game.background_image} alt={game.slug} />
-          </div>
-          <div className={styles.addCartPrice}>
-            <p>Add to Cart +</p>
-            <p>{game.price} $</p>
-          </div>
-          <div className={styles.platforms}>
-            {game.platforms.map(({ platform }) => {
-              if (platform.id === 186) {
-                return (
-                  <div key={platform.id}>
-                    <FaXbox />
-                  </div>
-                );
-              } else if (platform.id === 4) {
-                return (
-                  <div key={platform.id}>
-                    <FaWindows />
-                  </div>
-                );
-              } else if (platform.id === 187) {
-                return (
-                  <div key={platform.id}>
-                    <FaPlaystation />
-                  </div>
-                );
-              } else if (platform.id === 5) {
-                return (
-                  <div key={platform.id}>
-                    <FaApple />
-                  </div>
-                );
-              } else if (platform.id === 7) {
-                return (
-                  <div key={platform.id}>
-                    <BsNintendoSwitch />
-                  </div>
-                );
-              }
-            })}
-          </div>
-          <div><h3 className={styles.gameName}>{game.name}</h3></div>
-        </div>
-      ))}
-    </div>
+      <h3 className={styles.gamesTitle}>Games</h3>
+      <div className={styles.gameContainer}>
+        {games.map((game) => (
+          <NavLink
+            key={game.id}
+            to={`/game/${game.id}`}
+            state={{ price: game.price }}
+            style={{ textDecoration: "none" }}
+          >
+            <div className={styles.game}>
+              <div>
+                <img src={game.background_image} alt={game.slug} />
+              </div>
+              <div className={styles.addCartPrice}>
+                <p>Add to Cart +</p>
+                <p>{game.price} $</p>
+              </div>
+              <div className={styles.platforms}>
+                {game.platforms.map(({ platform }) => {
+                  if (platform.id === 186) {
+                    return (
+                      <div key={platform.id}>
+                        <FaXbox />
+                      </div>
+                    );
+                  } else if (platform.id === 4) {
+                    return (
+                      <div key={platform.id}>
+                        <FaWindows />
+                      </div>
+                    );
+                  } else if (platform.id === 187) {
+                    return (
+                      <div key={platform.id}>
+                        <FaPlaystation />
+                      </div>
+                    );
+                  } else if (platform.id === 5) {
+                    return (
+                      <div key={platform.id}>
+                        <FaApple />
+                      </div>
+                    );
+                  } else if (platform.id === 7) {
+                    return (
+                      <div key={platform.id}>
+                        <BsNintendoSwitch />
+                      </div>
+                    );
+                  }
+                })}
+              </div>
+              <div>
+                <h3 className={styles.gameName}>{game.name}</h3>
+              </div>
+            </div>
+          </NavLink>
+        ))}
+      </div>
     </>
   );
 }
