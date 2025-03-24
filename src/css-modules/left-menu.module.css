@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Original+Surfer&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.leftmenu {
+  width: 210px;
+  padding: 3px 40px;
+  font-family: "Roboto", sans-serif;
+  color: #fdfdfd;
+}
+
+.leftmenu h3 {
+  font-size: 1.7rem;
+  margin: 0;
+  padding: 20px 0px;
+  font-weight: 500;
+}
+
+.leftMenuTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1rem;
+  padding: 7px 5px;
+}
+
+.leftMenuNav {
+  color: #fdfdfd;
+  text-decoration: none;
+  font-weight: 400;
+}
