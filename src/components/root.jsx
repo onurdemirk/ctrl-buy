@@ -1,10 +1,7 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from "react-router-dom";
 import styles from "../css-modules/root.module.css";
-import Header from './Header';
-import LeftMenu from './LeftMenu';
-
-
-
+import Header from "./Header";
+import LeftMenu from "./LeftMenu";
 
 export default function Root() {
   return (
