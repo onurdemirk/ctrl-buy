@@ -1,0 +1,111 @@
+.swiper {
+  width: 800px;
+  height: auto;
+  border-radius: 15px;
+  margin: 0;
+}
+
+.img {
+  width: 800px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1px 50px;
+}
+
+.firstDetails {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  color: #fdfdfd;
+}
+
+.secondDetails {
+  display: flex;
+  gap: 50px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gameName {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 250px;
+  overflow-y: auto;
+  overflow-y: scroll;
+  margin: 10;
+  font-family: "Roboto", sans-serif;
+  color: #fdfdfd;
+  padding: 10px 10px;
+  border-radius: 30px;
+  background-color: #171717;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(233, 230, 230, 0.1); 
+}
+
+/* Webkit  (Chrome, Safari, Opera) */
+.description::-webkit-scrollbar {
+  width: 4px;
+}
+
+.description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.description::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 2px;
+}
+
+/* Firefox */
+.description {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.description h3 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.descText {
+  color: #bcb7b7;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.priceBlock {
+    margin-top: 10px;
+    padding: 1px 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #171717;
+    border-radius: 30px;
+    font-family: "Roboto", sans-serif;
+    color: #fdfdfd;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.cart {
+    font-size: 1.5rem;
+}
