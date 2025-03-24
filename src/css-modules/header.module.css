@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Original+Surfer&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  color: #fdfdfd;
+  font-size: 2rem;
+  padding: 10px 50px;
+}
+
+.header h3 {
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logos a {
+  color: #fdfdfd;
+  transition: color 0.3s;
+  padding-top: 5px;
+}
+
+.logos a:hover {
+  color: rgb(107, 107, 116);
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+  gap: 10px;
+  font-size: 1.5rem;
+  padding-top: 17px;
+}
+
+.cart p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.cartIcon {
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.cartIcon:hover {
+  color: rgb(107, 107, 116);
+}
