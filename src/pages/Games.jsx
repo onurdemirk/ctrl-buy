@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 import styles from "../css-modules/games.module.css";
 
 import { FaXbox } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { FaWindows } from "react-icons/fa";
 import { FaPlaystation } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { BsNintendoSwitch } from "react-icons/bs";
+import { FaCheck } from "react-icons/fa";
 
 export default function Games() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -15,6 +16,8 @@ export default function Games() {
   const [loading, setLoading] = React.useState(true);
 
   const [games, setGames] = React.useState([]);
+
+  const { addCart, cartItems } = useOutletContext();
 
   const getRandomPrice = () => {
     const min = 5;
@@ -47,18 +50,30 @@ export default function Games() {
       <h3 className={styles.gamesTitle}>Games</h3>
       <div className={styles.gameContainer}>
         {games.map((game) => (
-          <NavLink
-            key={game.id}
+            <div key={game.id} className={styles.game}>
+            <NavLink
             to={`/game/${game.id}`}
             state={{ price: game.price }}
             style={{ textDecoration: "none" }}
           >
-            <div className={styles.game}>
               <div>
                 <img src={game.background_image} alt={game.slug} />
               </div>
+              </NavLink>
               <div className={styles.addCartPrice}>
-                <p>Add to Cart +</p>
+                {!cartItems.some(item => item.gameId === game.id) ?
+                  <p className={styles.addCart}
+                    onClick={() => addCart(
+                      game.id,
+                      game.name,
+                      game.price,
+                      game.background_image
+                    )}
+                  >
+                    Add to Cart +
+                  </p>:
+                  <p className={styles.addedCart}>Added <span><FaCheck /></span></p>
+                }
                 <p>{game.price} $</p>
               </div>
               <div className={styles.platforms}>
@@ -96,13 +111,19 @@ export default function Games() {
                   }
                 })}
               </div>
+              <NavLink
+            to={`/game/${game.id}`}
+            state={{ price: game.price }}
+            style={{ textDecoration: "none" }}
+          >
               <div>
                 <h3 className={styles.gameName}>{game.name}</h3>
               </div>
+              </NavLink>
             </div>
-          </NavLink>
         ))}
       </div>
     </>
   );
+
 }
