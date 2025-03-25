@@ -1,16 +1,52 @@
-import { NavLink, Outlet } from "react-router-dom";
+import React from "react";
+import { useLocation, Outlet } from "react-router-dom";
 import styles from "../css-modules/root.module.css";
 import Header from "./Header";
 import LeftMenu from "./LeftMenu";
+import Cart from "../pages/Cart";
 
 export default function Root() {
+  const [cartOpen, setCartOpen] = React.useState(false);
+  const [cartItems, setCartItem] = React.useState([]);
+  const location = useLocation();
+
+  const toggleCart = () => {
+    setCartOpen((prevValue) => !prevValue);
+  };
+
+  const addCartItems = (gameId, gameName, gamePrice, gameBackgroundImage) => {
+    setCartItem((prevItems) => [
+      ...prevItems,
+      { gameId, gameName, gamePrice, gameBackgroundImage },
+    ]);
+  };
+
+  React.useEffect(() => {
+    if (cartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [cartOpen]);
+
+  const isGameDetails = location.pathname.startsWith("/game/");
+
   return (
     <div className={styles.rootContainer}>
-      <Header cartCount={0} /> {/* Cart count'u state'ten alacaksınız */}
+      <Header cart={toggleCart} />
+      {cartOpen && (
+        <div className={styles.overlay} onClick={() => toggleCart()}></div>
+      )}
+      <div>
+        <Cart isOpen={cartOpen} />
+      </div>
       <div className={styles.mainContent}>
-        <LeftMenu />
+        {!isGameDetails && <LeftMenu />}
         <div className={styles.outletContainer}>
-          <Outlet />
+          <Outlet context={{addCart: addCartItems, cartItems: cartItems}} />
         </div>
       </div>
     </div>
