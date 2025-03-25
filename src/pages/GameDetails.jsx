@@ -52,9 +52,6 @@ export default function GameDetails() {
 
   return (
     <div>
-      <div>
-        <Header />
-      </div>
       <div className={styles.container}>
         <div className={styles.firstDetails}>
           <div className={styles.back}>
