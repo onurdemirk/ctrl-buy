@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useOutletContext } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Header from "../components/Header";
 import { IoArrowBack } from "react-icons/io5";
+import { FaCheck } from "react-icons/fa";
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,7 +27,7 @@ export default function GameDetails() {
   const location = useLocation();
   const price = location.state?.price;
 
-  console.log(price);
+  const { addCart, cartItems } = useOutletContext();
 
   React.useEffect(() => {
     fetch(`https://api.rawg.io/api/games/${routeParams.id}?key=${apiKey}`)
@@ -103,7 +103,28 @@ export default function GameDetails() {
             </div>
             <div className={styles.priceBlock}>
               <p>${price}</p>
-              <p className={styles.cart}>Add to cart +</p>
+              {!cartItems.some((item) => item.gameId === routeParams.id) ? (
+                <p
+                  onClick={() =>
+                    addCart(
+                      routeParams.id,
+                      gameDetails.name,
+                      price,
+                      gameDetails.background_image
+                    )
+                  }
+                  className={styles.cart}
+                >
+                  Add to cart +
+                </p>
+              ) : (
+                <p className={styles.addedCart}>
+                  Added{" "}
+                  <span>
+                    <FaCheck />
+                  </span>
+                </p>
+              )}
             </div>
           </div>
         </div>
