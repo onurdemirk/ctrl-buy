@@ -1,0 +1,110 @@
+.cartMenu {
+    position: fixed;
+    width: 350px;
+    right: -350px;
+    height: 100vh;
+    top: 0;
+    z-index: 9999;
+    background-color: #202020;
+    transition: right 0.2s ease-in-out;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.cartOpen {
+    right: 0; 
+  }
+
+.firstBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.games {
+    font-size: 1.6rem;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.clear {
+    color: #999999;
+    cursor: pointer;
+}
+
+.total {
+    padding: 5px 20px;
+    font-size: 1.3rem;
+    color: #999999;
+}
+
+.cartGameAll {
+    height: 350px;
+    overflow-x: auto;
+}
+
+.cartGameAll::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .cartGameAll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .cartGameAll::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 2px;
+  }
+  
+  /* Firefox */
+  .cartGameAll {
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+  }
+
+.cartGameList {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    margin: 10px 15px;
+    background-color:#272727 ;
+    border-radius: 15px;
+}
+
+.cartGameDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.cartGameDetails img {
+    width: 120px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+.cartGameTexts {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.cancelCircle {
+    text-align: end;
+    color: #999999; 
+    cursor: pointer;
+}
+
+.price {
+    color: #999999;  
+}
