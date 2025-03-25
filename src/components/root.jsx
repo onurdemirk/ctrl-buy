@@ -7,7 +7,7 @@ import Cart from "../pages/Cart";
 
 export default function Root() {
   const [cartOpen, setCartOpen] = React.useState(false);
-  const [cartItems, setCartItem] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
   const location = useLocation();
 
   const toggleCart = () => {
@@ -15,7 +15,7 @@ export default function Root() {
   };
 
   const addCartItems = (gameId, gameName, gamePrice, gameBackgroundImage) => {
-    setCartItem((prevItems) => [
+    setCartItems((prevItems) => [
       ...prevItems,
       { gameId, gameName, gamePrice, gameBackgroundImage },
     ]);
@@ -36,17 +36,17 @@ export default function Root() {
 
   return (
     <div className={styles.rootContainer}>
-      <Header cart={toggleCart} />
+      <Header cart={toggleCart} cartItems={cartItems} />
       {cartOpen && (
         <div className={styles.overlay} onClick={() => toggleCart()}></div>
       )}
       <div>
-        <Cart isOpen={cartOpen} />
+        <Cart isOpen={cartOpen} cartItems={cartItems} setCartItems={setCartItems}  />
       </div>
       <div className={styles.mainContent}>
         {!isGameDetails && <LeftMenu />}
         <div className={styles.outletContainer}>
-          <Outlet context={{addCart: addCartItems, cartItems: cartItems}} />
+          <Outlet context={{addCart: addCartItems, cartItems: cartItems }} />
         </div>
       </div>
     </div>
