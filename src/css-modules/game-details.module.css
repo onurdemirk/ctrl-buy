@@ -1,5 +1,5 @@
 .swiper {
-  width: 800px;
+  width: 750px;
   height: auto;
   border-radius: 15px;
   margin: 0;
@@ -17,6 +17,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 1px 50px;
+  gap: 10px;
 }
 
 .firstDetails {
@@ -58,7 +59,7 @@
   border-radius: 30px;
   background-color: #171717;
   padding: 30px;
-  box-shadow: 0 4px 8px rgba(233, 230, 230, 0.1); 
+  box-shadow: 0 4px 8px rgba(233, 230, 230, 0.1);
 }
 
 /* Webkit  (Chrome, Safari, Opera) */
@@ -93,19 +94,28 @@
 }
 
 .priceBlock {
-    margin-top: 10px;
-    padding: 1px 30px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #171717;
-    border-radius: 30px;
-    font-family: "Roboto", sans-serif;
-    color: #fdfdfd;
-    align-items: center;
-    font-weight: 600;
-    font-size: 1.3rem;
+  margin-top: 10px;
+  padding: 1px 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #171717;
+  border-radius: 30px;
+  font-family: "Roboto", sans-serif;
+  color: #fdfdfd;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 .cart {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart:hover {
+  color: #999999;
+}
+
+.addedCart {
+  color: #18b0ab;
 }
