@@ -24,6 +24,11 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.game:hover {
+  transform: scale(1.05); 
 }
 
 .game img {
@@ -62,4 +67,12 @@
   color: #fdfdfd;
   font-size: 4rem;
   margin: 0 35px;
+}
+
+.addCart {
+  cursor: pointer;
+}
+
+.addedCart {
+  color: #18B0AB;
 }
