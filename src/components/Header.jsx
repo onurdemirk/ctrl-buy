@@ -7,7 +7,7 @@ import { SiTheodinproject } from "react-icons/si";
 import { PiShoppingCart } from "react-icons/pi";
 
 
-export default function Header({ cartCount }) {
+export default function Header(props) {
   return (
     <div className={styles.header}>
       <div className={styles.title}>
@@ -29,8 +29,8 @@ export default function Header({ cartCount }) {
         </div>
       </div>
       <div className={styles.cart}>
-        <PiShoppingCart className={styles.cartIcon} />
-        <p>{cartCount}</p>
+        <PiShoppingCart className={styles.cartIcon} onClick={props.cart}/>
+        <p>0</p>
       </div>
     </div>
   );
