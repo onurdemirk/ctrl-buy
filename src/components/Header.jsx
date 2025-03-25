@@ -30,7 +30,7 @@ export default function Header(props) {
       </div>
       <div className={styles.cart}>
         <PiShoppingCart className={styles.cartIcon} onClick={props.cart}/>
-        <p>0</p>
+        <p>{props.cartItems.length}</p>
       </div>
     </div>
   );
