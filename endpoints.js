@@ -65,9 +65,9 @@ export const endpoints = [
     text: "Xbox One",
   },
   {
-    id: "nintendo-switch",
+    id: "nintendo",
     url: `https://api.rawg.io/api/games?key=${apiKey}&platforms=7&page_size=15`,
-    text: "Nintendo Switch",
+    text: "Nintendo",
   },
   {
     id: "ios",
