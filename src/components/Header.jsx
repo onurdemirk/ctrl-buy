@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from '../css-modules/header.module.css';
 import { TbApi } from "react-icons/tb";
 import { LiaGithub } from "react-icons/lia";
@@ -11,12 +11,9 @@ export default function Header(props) {
   return (
     <div className={styles.header}>
       <div className={styles.title}>
-        <h3><Link to="/">CTRL+BUY</Link></h3>
+        <NavLink to="/" className={styles.headerTitle}>CTRL+BUY</NavLink>
         <div className={styles.logos}>
-          <a href="https://api.rawg.io/docs/" target="_blank" rel="noreferrer">
-            <TbApi size={25} />
-          </a>
-          <a href="https://github.com/onurdemirk/ctrl-buy" target="_blank" rel="noreferrer">
+        <a href="https://github.com/onurdemirk/ctrl-buy" target="_blank" rel="noreferrer">
             <LiaGithub size={25} />
           </a>
           <a
@@ -25,6 +22,9 @@ export default function Header(props) {
             rel="noreferrer"
           >
             <SiTheodinproject size={25} />
+          </a>
+          <a href="https://api.rawg.io/docs/" target="_blank" rel="noreferrer">
+            <TbApi size={25} />
           </a>
         </div>
       </div>
