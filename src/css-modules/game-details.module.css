@@ -36,7 +36,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  font-weight: 600;
 }
+
+.back:hover {
+  color: #999999;
+}
+
 
 .gameName {
   font-size: 3.5rem;
