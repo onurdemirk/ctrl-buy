@@ -36,7 +36,7 @@ export default function Root() {
 
   return (
     <div className={styles.rootContainer}>
-      <Header cart={toggleCart} cartItems={cartItems} />
+      <Header cart={toggleCart} cartItems={cartItems}/>
       {cartOpen && (
         <div className={styles.overlay} onClick={() => toggleCart()}></div>
       )}
@@ -44,7 +44,7 @@ export default function Root() {
         <Cart isOpen={cartOpen} cartItems={cartItems} setCartItems={setCartItems}  />
       </div>
       <div className={styles.mainContent}>
-        {!isGameDetails && <LeftMenu />}
+        {!isGameDetails && <LeftMenu className={styles.leftMenu}/>}
         <div className={styles.outletContainer}>
           <Outlet context={{addCart: addCartItems, cartItems: cartItems }} />
         </div>
