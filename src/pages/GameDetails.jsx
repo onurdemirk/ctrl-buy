@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { IoArrowBack } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
 
+import { motion } from "motion/react"
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -62,6 +64,11 @@ export default function GameDetails() {
           <p className={styles.gameName}>{gameDetails.name}</p>
         </div>
         <div className={styles.secondDetails}>
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <Swiper
             cssMode={true}
             navigation={true}
@@ -90,6 +97,12 @@ export default function GameDetails() {
               </SwiperSlide>
             ))}
           </Swiper>
+          </motion.div>
+          <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          >
           <div>
             <div className={styles.description}>
               <h3>Description</h3>
@@ -128,6 +141,7 @@ export default function GameDetails() {
               )}
             </div>
           </div>
+          </motion.div>
         </div>
       </div>
     </div>
