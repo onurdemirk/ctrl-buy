@@ -2,8 +2,8 @@
 
 .gameContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 25px;
   font-family: "Roboto", sans-serif;
   padding-top: 20px;
   max-width: 1300px;
@@ -34,6 +34,7 @@
 .game img {
   width: 100%;
   height: 200px;
+  min-height: 200px;
   object-fit: cover;
   display: block;
 }
@@ -75,4 +76,22 @@
 
 .addedCart {
   color: #18B0AB;
+}
+
+.gameImageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: #333; /* Görseldeki şeffaf alanları ortaya çıkarmak için */
+}
+
+.gameImageContainer img {
+  width: 100%;
+  height: 150%; /* Görseli container'dan 1.5 kat daha uzun yapıyoruz */
+  object-fit: cover;
+  object-position: center top; /* Üst kısma sabitliyoruz */
+  position: absolute;
+  top: -20%; /* Görseli yukarı itiyoruz */
+  left: 0;
 }
