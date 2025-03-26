@@ -3,13 +3,27 @@ import styles from "../css-modules/left-menu.module.css";
 import { FaTrophy } from "react-icons/fa";
 import { SiSimpleanalytics } from "react-icons/si";
 import { FaCrown } from "react-icons/fa6";
+import { FaWindows } from "react-icons/fa";
+import { FaPlaystation } from "react-icons/fa";
+import { FaXbox } from "react-icons/fa";
+import { BsNintendoSwitch } from "react-icons/bs";
+import { FaApple } from "react-icons/fa";
+import { IoLogoAndroid } from "react-icons/io";
+import { RiGamepadFill } from "react-icons/ri";
+import { BiSolidGame } from "react-icons/bi";
+import { FaPuzzlePiece } from "react-icons/fa6";
+import { GiThrownKnife } from "react-icons/gi";
+import { FaChessKnight } from "react-icons/fa6";
+import { FaGun } from "react-icons/fa6";
+import { FaCalendarCheck } from "react-icons/fa";
+import { BsCalendar3WeekFill } from "react-icons/bs";
 
 export default function LeftMenu() {
   return (
     <div className={styles.leftmenu}>
-      <h3>New Releases</h3>
+      <h3>Releases</h3>
       <div className={styles.leftMenuTitle}>
-        <FaCrown />
+      <FaCalendarCheck />
         <NavLink
           to="/category/last-30-days"
           className={({ isActive }) =>
@@ -20,7 +34,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <FaCrown />
+      <BsCalendar3WeekFill />
         <NavLink
           to="/category/this-week"
           className={({ isActive }) =>
@@ -28,17 +42,6 @@ export default function LeftMenu() {
           }
         >
           This week
-        </NavLink>
-      </div>
-      <div className={styles.leftMenuTitle}>
-        <FaCrown />
-        <NavLink
-          to="/category/next-week"
-          className={({ isActive }) =>
-            isActive ? styles.leftMenuNavActive : styles.leftMenuNav
-          }
-        >
-          Next week
         </NavLink>
       </div>
       <h3>Top</h3>
@@ -77,7 +80,7 @@ export default function LeftMenu() {
       </div>
       <h3>Platforms</h3>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaWindows />
         <NavLink
           to="/category/pc"
           className={({ isActive }) =>
@@ -88,7 +91,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaPlaystation />
         <NavLink
           to="/category/playstation"
           className={({ isActive }) =>
@@ -99,7 +102,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaXbox />
         <NavLink
           to="/category/xbox-one"
           className={({ isActive }) =>
@@ -110,7 +113,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <BsNintendoSwitch />
         <NavLink
           to="/category/nintendo-switch"
           className={({ isActive }) =>
@@ -121,7 +124,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaApple />
         <NavLink
           to="/category/ios"
           className={({ isActive }) =>
@@ -132,7 +135,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <IoLogoAndroid />
         <NavLink
           to="/category/android"
           className={({ isActive }) =>
@@ -144,7 +147,7 @@ export default function LeftMenu() {
       </div>
       <h3>Genres</h3>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <RiGamepadFill />
         <NavLink
           to="/category/indie"
           className={({ isActive }) =>
@@ -155,7 +158,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <BiSolidGame />
         <NavLink
           to="/category/action"
           className={({ isActive }) =>
@@ -166,7 +169,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaPuzzlePiece />
         <NavLink
           to="/category/adventure"
           className={({ isActive }) =>
@@ -177,7 +180,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <GiThrownKnife />
         <NavLink
           to="/category/rpg"
           className={({ isActive }) =>
@@ -188,7 +191,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaChessKnight />
         <NavLink
           to="/category/strategy"
           className={({ isActive }) =>
@@ -199,7 +202,7 @@ export default function LeftMenu() {
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
-        <SiSimpleanalytics />
+      <FaGun />
         <NavLink
           to="/category/shooter"
           className={({ isActive }) =>
