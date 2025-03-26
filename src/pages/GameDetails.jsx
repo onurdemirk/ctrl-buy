@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useLocation, useOutletContext } from "react-router-dom";
+import { useParams, useLocation, useOutletContext, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoArrowBack } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
@@ -28,6 +28,7 @@ export default function GameDetails() {
   const price = location.state?.price;
 
   const { addCart, cartItems } = useOutletContext();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     fetch(`https://api.rawg.io/api/games/${routeParams.id}?key=${apiKey}`)
@@ -54,7 +55,7 @@ export default function GameDetails() {
     <div>
       <div className={styles.container}>
         <div className={styles.firstDetails}>
-          <div className={styles.back}>
+          <div className={styles.back} onClick={() => navigate(-1)}>
             <IoArrowBack />
             <p>Back</p>
           </div>
