@@ -115,12 +115,12 @@ export default function LeftMenu() {
       <div className={styles.leftMenuTitle}>
       <BsNintendoSwitch />
         <NavLink
-          to="/category/nintendo-switch"
+          to="/category/nintendo"
           className={({ isActive }) =>
             isActive ? styles.leftMenuNavActive : styles.leftMenuNav
           }
         >
-          Nintendo Switch
+          Nintendo
         </NavLink>
       </div>
       <div className={styles.leftMenuTitle}>
