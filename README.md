@@ -1,12 +1,42 @@
-# React + Vite
+# CtrlBuy Game Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:** [https://ctrlbuy.netlify.app/](https://ctrlbuy.netlify.app/)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CtrlBuy is a modern, responsive game store built with React and Vite. It features client-side routing via `react-router-dom` and modular styling using CSS Modules. The application includes:
 
-## Expanding the ESLint configuration
+- A fixed left navigation menu
+- A dynamic games listing page with category filtering
+- Detailed game pages
+- A shopping cart for adding and reviewing selected games
+- Loading and error state handling
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The project is designed as a Single Page Application (SPA) and is deployed on Netlify with a custom `_redirects` file to ensure proper client-side routing.
+
+## Features
+
+- **Client-Side Routing:**  
+  Uses `react-router-dom` to manage routing without full page reloads.
+- **Fixed Left Menu:**  
+  The left navigation panel remains fixed while the main content scrolls independently.
+- **Responsive Games Listing:**  
+  Games are displayed in a responsive grid layout, with dynamic filtering by category.
+- **Game Details Page:**  
+  Detailed information and screenshots are available for each game 
+- **Shopping Cart:**  
+  Users can add games to a cart and view the cart contents.
+- **Loading & Error Handling:**  
+  Custom components provide user feedback during data fetching.
+- **Deployment Ready:**  
+  Configured for Netlify deployment with a `_redirects` file to support client-side routing.
+
+## Technologies Used
+
+- **React**
+- **Vite**
+- **react-router-dom**
+- **CSS Modules**
+- **Netlify**
+- **Fetch API**
+- **React Icons**
