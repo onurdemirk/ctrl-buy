@@ -5,6 +5,11 @@
   padding: 3px 40px;
   font-family: "Roboto", sans-serif;
   color: #fdfdfd;
+  overflow-y:auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+  height: 100vh;
+
 }
 
 .leftmenu h3 {

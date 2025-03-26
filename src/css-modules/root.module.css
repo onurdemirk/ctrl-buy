@@ -9,12 +9,12 @@ body {
 .rootContainer {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
-
 
 .mainContent {
   display: flex;
-  transition: filter 0.3s ease;
+  
 }
 
 .overlay {
