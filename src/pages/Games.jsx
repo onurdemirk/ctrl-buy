@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink, useOutletContext,useParams } from "react-router-dom";
 import styles from "../css-modules/games.module.css";
 import { endpoints } from "../../endpoints"
+import Loading from "../pages/Loading"
+import Error from "../pages/Error"
 
 import { FaXbox } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa";
@@ -24,8 +26,6 @@ export default function Games() {
   const selectedCategory = categoryName 
   ? endpoints.find(e => e.id === categoryName) 
   : endpoints.find(e => e.id === "main") 
-
-
 
   const getRandomPrice = () => {
     const min = 5;
@@ -50,8 +50,8 @@ export default function Games() {
       .finally(() => setLoading(false));
   }, [categoryName]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
   return (
     <>
