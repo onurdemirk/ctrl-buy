@@ -1,37 +1,46 @@
 const apiKey = import.meta.env.VITE_API_KEY;
 const currentYear = new Date().getFullYear();
+
 const formatDate = (date) => date.toISOString().split("T")[0];
 
 const today = new Date();
-
-const day = today.getDay();
-const diffToMonday = day === 0 ? -6 : 1 - day;
-const mondayThisWeek = new Date(today);
-mondayThisWeek.setDate(today.getDate() + diffToMonday);
-
-const weekStart = formatDate(mondayThisWeek);
-const weekEnd = formatDate(
-  new Date(mondayThisWeek.getTime() + 6 * 24 * 60 * 60 * 1000)
-);
-
-const last30Start = formatDate(
-  new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000)
-);
 const todayStr = formatDate(today);
 
-const nextWeekMonday = new Date(mondayThisWeek);
-nextWeekMonday.setDate(mondayThisWeek.getDate() + 7);
+// --- Last 30 Days ---
+const last30Start = new Date(today);
+last30Start.setDate(today.getDate() - 30);
+const last30StartStr = formatDate(last30Start);
 
-const nextWeekEndDate = new Date(nextWeekMonday);
-nextWeekEndDate.setDate(nextWeekMonday.getDate() + 13);
+// --- This Week (Monday to Sunday) ---
+const jsDay = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+const mondayOffset = (jsDay + 6) % 7; // Convert to Monday-based week
+const monday = new Date(today);
+monday.setDate(today.getDate() - mondayOffset);
+const sunday = new Date(monday);
+sunday.setDate(monday.getDate() + 6);
+
+const weekStart = formatDate(monday);
+const weekEnd = formatDate(sunday);
 
 export const endpoints = [
+  // Main
   {
     id: "main",
     url: `https://api.rawg.io/api/games?key=${apiKey}&page_size=15`,
     text: "Games",
   },
 
+  // Time-based filters
+  {
+    id: "last-30-days",
+    url: `https://api.rawg.io/api/games?key=${apiKey}&dates=${last30StartStr},${todayStr}&ordering=-added&page_size=15`,
+    text: "Last 30 Days",
+  },
+  {
+    id: "this-week",
+    url: `https://api.rawg.io/api/games?key=${apiKey}&dates=${weekStart},${weekEnd}&ordering=-added&page_size=15`,
+    text: "This Week",
+  },
   {
     id: "best-of-the-year",
     url: `https://api.rawg.io/api/games?key=${apiKey}&dates=${currentYear}-01-01,${currentYear}-12-31&ordering=-rating&page_size=15`,
@@ -110,17 +119,5 @@ export const endpoints = [
     id: "shooter",
     url: `https://api.rawg.io/api/games?key=${apiKey}&genres=shooter&page_size=15`,
     text: "Shooter",
-  },
-
-  // Time-based filters
-  {
-    id: "last-30-days",
-    url: `https://api.rawg.io/api/games?key=${apiKey}&dates=${last30Start},${todayStr}&ordering=-added&page_size=15`,
-    text: "Last 30 Days",
-  },
-  {
-    id: "this-week",
-    url: `https://api.rawg.io/api/games?key=${apiKey}&dates=${weekStart},${weekEnd}&ordering=-added&page_size=15`,
-    text: "This Week",
   },
 ];
