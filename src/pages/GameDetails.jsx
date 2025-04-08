@@ -1,10 +1,15 @@
 import React from "react";
-import { useParams, useLocation, useOutletContext, useNavigate } from "react-router-dom";
+import {
+  useParams,
+  useLocation,
+  useOutletContext,
+  useNavigate,
+} from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoArrowBack } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
-import Loading from "../pages/Loading"
-import Error from "../pages/Error"
+import Loading from "../pages/Loading";
+import Error from "../pages/Error";
 
 // Import Swiper styles
 import "swiper/css";
@@ -106,7 +111,9 @@ export default function GameDetails() {
             </div>
             <div className={styles.priceBlock}>
               <p>${price}</p>
-              {!cartItems.some((item) => item.gameId === routeParams.id) ? (
+              {!cartItems.some(
+                (item) => Number(item.gameId) === Number(routeParams.id)
+              ) ? (
                 <p
                   onClick={() =>
                     addCart(
