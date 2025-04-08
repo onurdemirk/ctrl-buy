@@ -44,7 +44,7 @@ export default function Root() {
         <Cart isOpen={cartOpen} cartItems={cartItems} setCartItems={setCartItems}  />
       </div>
       <div className={styles.mainContent}>
-        {!isGameDetails && <LeftMenu className={styles.leftMenu}/>}
+        {!isGameDetails && <LeftMenu/>}
         <div className={styles.outletContainer}>
           <Outlet context={{addCart: addCartItems, cartItems: cartItems }} />
         </div>
