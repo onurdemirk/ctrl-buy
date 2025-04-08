@@ -9,7 +9,10 @@
   color: #fdfdfd;
   font-size: 2rem;
   padding: 10px 50px;
-  
+  position: sticky;
+  top: 0;
+  background-color: #0F1010;
+  z-index: 5000;
 }
 
 .headerTitle {
