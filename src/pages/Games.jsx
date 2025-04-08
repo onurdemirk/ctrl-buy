@@ -85,7 +85,7 @@ export default function Games() {
                 <p>{game.price} $</p>
               </div>
               <div className={styles.platforms}>
-                {game.platforms.map(({ platform }) => {
+                {game.platforms?.map(({ platform }) => {
                   if (platform.id === 186) {
                     return (
                       <div key={platform.id}>
