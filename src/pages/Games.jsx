@@ -69,7 +69,7 @@ export default function Games() {
               </div>
               </NavLink>
               <div className={styles.addCartPrice}>
-                {!cartItems.some(item => item.gameId === game.id) ?
+                {!cartItems.some(item => Number(item.gameId) === Number(game.id)) ?
                   <p className={styles.addCart}
                     onClick={() => addCart(
                       game.id,
